@@ -5,9 +5,9 @@ import fs from "fs/promises";
 console.log("Script started…");
 
 // === GMAIL CREDENTIALS (env wins; fallback to constants) ===
-const GMAIL_USER = process.env.GMAIL_USER || "olaiwolah14@gmail.com";
-const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || "mxlqqclqabsymvac"; // 16 chars, no spaces
-const RECIPIENT = process.argv[2] || "olaiwolah11@gmail.com"; // CLI arg > fallback
+const GMAIL_USER = process.env.GMAIL_USER || "";
+const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || ""; // 16 chars, no spaces
+const RECIPIENT = process.argv[2] || ""; // CLI arg > fallback
 
 try {
   console.log("Loading template…");
