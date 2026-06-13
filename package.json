@@ -1,0 +1,16 @@
+{
+  "name": "ticketmaster",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "send-transfer-email.js",
+  "license": "ISC",
+  "scripts": {
+    "start": "node send-transfer-email.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nodemailer": "^7.0.5"
+  }
+}

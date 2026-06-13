@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Ticketmaster Sign In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root { --brand:#2741ff; }
+    body { background:#0f0f12; }
+    .split { max-width:1100px; margin:auto; background:#15161a; border-radius:18px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+    .left { color:#fff; background:linear-gradient(180deg,#10131f 0%,#0f0f12 100%); padding:48px; }
+    .left h1 { font-weight:800; letter-spacing:.04em; margin-bottom:18px; }
+    .left hr { width:80px; height:4px; border:0; background:var(--brand); opacity:1; margin:8px 0 16px; border-radius:999px; }
+    .right { background:#fff; padding:48px; }
+    .btn-brand { background:var(--brand); border-color:var(--brand); }
+    .btn-brand:hover { filter:brightness(.95); }
+    .cookie { position:fixed; left:16px; right:16px; bottom:16px; background:#fff; border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.25); max-width:760px; margin:auto; display:none; }
+    .disclaimer { font-size:0.75rem; color:#6c757d; margin-top:16px; }
+  </style>
+</head>
+<body class="py-5">
+
+  <div class="split row g-0">
+    <!-- Left/Welcome -->
+    <div class="left col-12 col-lg-5">
+      <h1>WELCOME</h1>
+      <hr />
+      <p class="text-light-emphasis">
+        Discover millions of events, get alerts about your favorite artists, teams, plays and more —
+        with a secure, effortless ticketing experience.
+      </p>
+    </div>
+
+    <!-- Right/Form -->
+    <div class="right col-12 col-lg-7">
+      <h3 class="fw-bold">Sign in or create account</h3>
+      <p class="text-muted">If you don’t have an account you’ll be prompted to create one.</p>
+
+      <form id="signin" class="mt-3" novalidate>
+        <div class="mb-3">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" class="form-control form-control-lg" placeholder="you@example.com" required />
+          <div class="invalid-feedback">Enter a valid email.</div>
+        </div>
+
+        <button class="btn btn-brand btn-lg w-100" type="submit">Continue</button>
+
+        <p class="disclaimer">
+          By continuing past this page, I acknowledge that I have read and agree to the current
+          <strong>Terms of Use</strong>, including the arbitration agreement and class action waiver,
+          updated in August 2025, and understand that information will be used as described in our
+          <strong>Privacy Policy</strong>.
+        </p>
+        <p class="disclaimer">
+          As set forth in our Privacy Policy, we may use your information for email marketing,
+          including promotions and updates on our own or third-party products.
+          You can opt out of our marketing emails anytime.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Demo sign-in: client-side only
+    const form = document.getElementById("signin");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.classList.add("was-validated"); return; }
+      const email = form.email.value.trim();
+      localStorage.setItem("tm_user_email", email);
+      localStorage.setItem("tm_user_name", email.split("@")[0]);
+
+      // ✅ use relative path because email.html and password.html are in the same /ntick folder
+      location.href = "password.html";
+      // (If you ever move files, adjust to "./password.html" or "../password.html" as needed.)
+    });
+  </script>
+</body>
+</html>

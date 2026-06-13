@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" style="margin:0;padding:0;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket Transfer</title>
+  <style>
+    @media only screen and (max-width:600px){
+      .container{width:100%!important}
+      .stack{display:block!important;width:100%!important}
+      .btn{width:100%!important}
+      .p-24{padding:16px!important}
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:#f4f6f9;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f6f9;">
+    <tr>
+      <td align="center" style="padding:24px;">
+        <!-- Card -->
+        <table class="container" role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;max-width:100%;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08);font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+          <!-- Header -->
+          <tr>
+            <td style="background:#0b1a5e;color:#ffffff;padding:16px 24px;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td style="font-weight:700;font-size:18px;letter-spacing:.2px;">
+                    Ticketmaster
+                  </td>
+                  <td align="right" style="font-size:12px;opacity:.9;">Ticket Transfer</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Event block -->
+          <tr>
+            <td class="p-24" style="padding:24px;">
+              <table role="presentation" width="100%">
+                <tr>
+                  <td class="stack" valign="top" width="120">
+                    <img src="{{image_url}}" width="120" height="120" alt="Event image" style="display:block;width:120px;height:120px;border-radius:10px;object-fit:cover;background:#e5e7eb;">
+                  </td>
+                  <td class="stack" valign="top" style="padding-left:16px;">
+                    <div style="font-size:13px;color:#475569;">Tickets sent by</div>
+                    <div style="font-size:16px;font-weight:600;margin-top:2px;">{{sender_name}}</div>
+                    <div style="font-size:20px;font-weight:700;margin-top:10px;line-height:1.25;">
+                      {{event_title}}
+                    </div>
+                    <div style="font-size:14px;color:#475569;margin-top:6px;">
+                      {{event_date}} • {{event_time}}
+                    </div>
+                    <div style="font-size:14px;color:#475569;">
+                      {{venue_name}} — {{venue_city}}
+
+
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Tickets table -->
+          <tr>
+            <td class="p-24" style="padding:0 24px 8px 24px;">
+              <div style="font-weight:700;margin:0 0 8px;">Tickets included</div>
+              <table role="presentation" width="100%" style="border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+                <tr style="background:#f8fafc;">
+                  <td style="padding:10px 12px;font-size:13px;font-weight:600;">Section</td>
+                  <td style="padding:10px 12px;font-size:13px;font-weight:600;">Row</td>
+                  <td style="padding:10px 12px;font-size:13px;font-weight:600;">Seat</td>
+                </tr>
+                {{#each tickets}}
+                <tr>
+                  <td style="padding:10px 12px;border-top:1px solid #e5e7eb;">{{sec}}</td>
+                  <td style="padding:10px 12px;border-top:1px solid #e5e7eb;">{{row}}</td>
+                  <td style="padding:10px 12px;border-top:1px solid #e5e7eb;">{{seat}}</td>
+                </tr>
+                {{/each}}
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td class="p-24" align="center" style="padding:16px 24px 24px;">
+              <a href="{{accept_url}}" class="btn" style="display:inline-block;background:#3f6fe8;color:#ffffff;text-decoration:none;padding:10px 14px;border-radius:10px;font-weight:700;font-size:14px;line-height:1.2;width:auto;">
+                Accept Tickets
+              </a>
+              <div style="font-size:12px;color:#64748b;margin-top:10px;">
+                If the button doesn’t work, copy and paste this link:<br>
+                <span style="word-break:break-all;color:#2563eb;">{{accept_url}}</span>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Info -->
+          <tr>
+            <td class="p-24" style="padding:0 24px 24px;">
+              <div style="font-size:13px;color:#475569;line-height:1.55;">
+                You’ll need an account at <span style="color:#111;font-weight:600;">Ticketmaster</span> to accept and view these tickets.
+                If you didn’t expect this transfer, please ignore this email or contact us at
+                <a href="mailto:support_email" style="color:#2563eb;text-decoration:none;">contact@ticketmaster.com</a>.
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#0b1a5e;color:#cbd5e1;padding:16px 24px;font-size:12px;">
+              © 2025 Ticketmaster • <a href="{{brand_domain_url}}" style="color:#cbd5e1;text-decoration:underline;">https://ticketmaster.com</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
